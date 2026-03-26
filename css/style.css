@@ -172,6 +172,21 @@ p {
     box-shadow: 0 0 20px rgba(34, 211, 238, 0.5);
 }
 
+.btn-portal {
+    padding: 8px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 6px;
+    color: var(--text-muted) !important;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+}
+
+.btn-portal:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color) !important;
+    box-shadow: 0 0 12px rgba(34, 211, 238, 0.15);
+}
+
 .btn-outline {
     border: 1px solid var(--border-color);
     padding: 10px 20px;
