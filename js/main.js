@@ -185,7 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Wire checkout buttons
     planBtns.forEach(btn => {
         btn.addEventListener('click', async function () {
-            const plan = this.dataset.plan; // 'start' | 'growth' | 'pro'
+            const plan = this.dataset.plan; // 'solo' | 'growth' | 'team'
             const billingCycle = isAnnual ? 'annual' : 'monthly';
             const priceId = prices[plan] && prices[plan][billingCycle];
 
