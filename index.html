@@ -57,7 +57,7 @@
                     internetinę svetainę.</p>
                 <div class="hero-buttons">
                     <a href="#pavyzdziai" class="btn btn-secondary">Peržiūrėti pavyzdžius</a>
-                    <a href="#kontaktai" class="btn btn-primary">Gauti demonstraciją</a>
+                    <a href="#kainos" class="btn btn-primary">Pradėti</a>
                 </div>
             </div>
         </div>
@@ -146,7 +146,7 @@
     <section id="kainos" class="pricing bg-light">
         <div class="container fade-in">
             <div class="section-header">
-                <h2>Svetainės planai</h2>
+                <h2>Pasirinkite savo planą</h2>
                 <div class="divider"></div>
             </div>
             <!-- Monthly / Annual toggle -->
@@ -159,28 +159,35 @@
                 <span class="toggle-label" id="label-annual">Metinis <span class="save-badge">Sutaupykite 2 mėn.</span></span>
             </div>
 
-            <!-- 3-Step Process -->
+            <!-- 5-Step Process -->
             <div class="steps-process">
                 <div class="step-card">
                     <div class="step-circle">1</div>
-                    <h4>Pasirinkite planą</h4>
-                    <p>Išsirinkite tinkamiausią planą savo salonui</p>
+                    <h4>Planas</h4>
                 </div>
                 <div class="step-arrow"><i class="fas fa-arrow-right"></i></div>
                 <div class="step-card">
                     <div class="step-circle">2</div>
-                    <h4>Apmokėkite</h4>
-                    <p>Saugus mokėjimas per Stripe</p>
+                    <h4>Papildymai</h4>
                 </div>
                 <div class="step-arrow"><i class="fas fa-arrow-right"></i></div>
                 <div class="step-card">
                     <div class="step-circle">3</div>
-                    <h4>Gaukite svetainę</h4>
-                    <p>Per 7 darbo dienas svetainė bus paruošta</p>
+                    <h4>Peržiūra</h4>
+                </div>
+                <div class="step-arrow"><i class="fas fa-arrow-right"></i></div>
+                <div class="step-card">
+                    <div class="step-circle">4</div>
+                    <h4>Apmokėjimas</h4>
+                </div>
+                <div class="step-arrow"><i class="fas fa-arrow-right"></i></div>
+                <div class="step-card">
+                    <div class="step-circle">5</div>
+                    <h4>Svetainė</h4>
                 </div>
             </div>
 
-            <div class="grid pricing-grid">
+            <div class="grid pricing-grid pricing-grid-2">
                 <div class="card pricing-card">
                     <h3>SOLO</h3>
                     <div class="price"
@@ -188,64 +195,87 @@
                         data-annual-html='<span class="old-price">300€</span> 199€<span>/metus</span>'>
                         25€<span>/mėn</span>
                     </div>
+                    <p class="plan-desc">Idealus vienam grožio specialistui</p>
                     <ul class="features">
-                        <li><i class="fas fa-check"></i> 1 darbuotojas</li>
-                        <li><i class="fas fa-check"></i> moderni svetainė</li>
-                        <li><i class="fas fa-check"></i> paslaugų kainos</li>
-                        <li><i class="fas fa-check"></i> galerija</li>
-                        <li><i class="fas fa-check"></i> online registracija</li>
-                        <li><i class="fas fa-check"></i> hostingas</li>
-                        <li class="disabled"><i class="fas fa-times"></i> Google Maps integracija</li>
-                        <li class="disabled"><i class="fas fa-times"></i> smulkūs pakeitimai</li>
-                        <li class="disabled"><i class="fas fa-times"></i> prioritetinis palaikymas</li>
+                        <li><i class="fas fa-check"></i> 1 grožio specialistas</li>
+                        <li><i class="fas fa-check"></i> Moderni svetainė</li>
+                        <li><i class="fas fa-check"></i> Paslaugų kainos</li>
+                        <li><i class="fas fa-check"></i> Galerija</li>
+                        <li><i class="fas fa-check"></i> Online registracija</li>
+                        <li><i class="fas fa-check"></i> Hostingas ir palaikymas</li>
                     </ul>
-                    <button class="plan-btn btn-outline" data-plan="solo" style="margin-top:auto">Pasirinkti planą</button>
+                    <button class="plan-btn btn-outline" data-plan="solo" style="margin-top:auto">Pasirinkti</button>
                 </div>
                 <div class="card pricing-card featured">
                     <div class="badge">Populiariausias</div>
-                    <h3>GROWTH</h3>
-                    <div class="price"
-                        data-monthly-html='39€<span>/mėn</span>'
-                        data-annual-html='<span class="old-price">468€</span> 349€<span>/metus</span>'>
-                        39€<span>/mėn</span>
-                    </div>
-                    <ul class="features">
-                        <li><i class="fas fa-check"></i> iki 3 darbuotojų</li>
-                        <li><i class="fas fa-check"></i> moderni svetainė</li>
-                        <li><i class="fas fa-check"></i> paslaugų kainos</li>
-                        <li><i class="fas fa-check"></i> galerija</li>
-                        <li><i class="fas fa-check"></i> online registracija</li>
-                        <li><i class="fas fa-check"></i> hostingas</li>
-                        <li><i class="fas fa-check"></i> Google Maps integracija</li>
-                        <li><i class="fas fa-check"></i> iki 3 pakeitimų per mėn.</li>
-                        <li class="disabled"><i class="fas fa-times"></i> prioritetinis palaikymas</li>
-                    </ul>
-                    <button class="plan-btn btn-primary" data-plan="growth" style="margin-top:auto">Pasirinkti planą</button>
-                </div>
-                <div class="card pricing-card best-value">
-                    <div class="top-banner">Geriausia vertė</div>
                     <h3>TEAM</h3>
                     <div class="price"
                         data-monthly-html='59€<span>/mėn</span>'
                         data-annual-html='<span class="old-price">708€</span> 399€<span>/metus</span>'>
                         59€<span>/mėn</span>
                     </div>
+                    <p class="plan-desc">Salonams su keliais darbuotojais</p>
                     <ul class="features">
-                        <li><i class="fas fa-check"></i> neriboti darbuotojai</li>
-                        <li><i class="fas fa-check"></i> moderni svetainė</li>
-                        <li><i class="fas fa-check"></i> paslaugų kainos</li>
-                        <li><i class="fas fa-check"></i> galerija</li>
-                        <li><i class="fas fa-check"></i> online registracija</li>
-                        <li><i class="fas fa-check"></i> hostingas</li>
+                        <li><i class="fas fa-check"></i> Keli darbuotojai</li>
+                        <li><i class="fas fa-check"></i> Moderni svetainė</li>
+                        <li><i class="fas fa-check"></i> Paslaugų kainos</li>
+                        <li><i class="fas fa-check"></i> Galerija</li>
+                        <li><i class="fas fa-check"></i> Online registracija</li>
+                        <li><i class="fas fa-check"></i> Hostingas ir palaikymas</li>
                         <li><i class="fas fa-check"></i> Google Maps integracija</li>
-                        <li><i class="fas fa-check"></i> neriboti smulkūs pakeitimai</li>
-                        <li><i class="fas fa-check"></i> prioritetinis palaikymas 24/7</li>
+                        <li><i class="fas fa-check"></i> Prioritetinis palaikymas</li>
                     </ul>
-                    <button class="plan-btn btn-outline" data-plan="team" style="margin-top:auto">Pasirinkti planą</button>
+                    <button class="plan-btn btn-primary" data-plan="team" style="margin-top:auto">Pasirinkti</button>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Purchase Flow Modal -->
+    <div id="purchaseModal" class="modal purchase-modal">
+        <div class="purchase-modal-content">
+            <button class="close-modal" id="closePurchaseModal"><i class="fas fa-times"></i></button>
+
+            <!-- Selected plan header -->
+            <div class="purchase-plan-header" id="purchasePlanHeader"></div>
+
+            <!-- Modal Step Indicator -->
+            <div class="purchase-steps">
+                <span class="purchase-step active" data-pstep="1">1. Papildymai</span>
+                <span class="purchase-step" data-pstep="2">2. Suvestinė</span>
+            </div>
+
+            <!-- Step 1: Add-ons -->
+            <div class="purchase-step-content active" data-pstep="1">
+                <h3 class="step-title">Pasirinkite papildomas funkcijas</h3>
+                <p class="step-subtitle">Visos funkcijos neprivalomos — galite pridėti ir vėliau.</p>
+                <div class="addons-grid" id="addonsGrid">
+                    <!-- Populated dynamically by JS -->
+                </div>
+                <div class="purchase-nav">
+                    <button type="button" class="btn btn-secondary" id="skipAddons">Praleisti</button>
+                    <button type="button" class="btn btn-primary" id="toSummary">Toliau <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <!-- Step 2: Order Summary -->
+            <div class="purchase-step-content" data-pstep="2">
+                <h3 class="step-title">Jūsų užsakymas</h3>
+                <div class="order-summary" id="orderSummary">
+                    <!-- Populated dynamically -->
+                </div>
+                <div class="order-total" id="orderTotal"></div>
+                <p class="order-note"><i class="fas fa-image"></i> Galerija ir medijos talpa įskaičiuota į planą.</p>
+                <div class="purchase-nav">
+                    <button type="button" class="btn btn-secondary" id="backToAddons"><i class="fas fa-arrow-left"></i> Atgal</button>
+                    <button type="button" class="btn btn-primary btn-large" id="checkoutBtn">
+                        <i class="fas fa-lock"></i> Apmokėti per Stripe
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- CTA Section -->
     <section class="cta">
         <div class="container fade-in">

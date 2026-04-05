@@ -110,41 +110,6 @@
             margin-bottom: 40px;
         }
 
-        /* Tally iframe wrapper */
-        .tally-wrapper {
-            background: #111827;
-            border-radius: 16px;
-            border: 1px solid rgba(248, 250, 252, 0.08);
-            overflow: hidden;
-            min-height: 600px;
-        }
-
-        .tally-wrapper iframe {
-            width: 100%;
-            min-height: 600px;
-            border: none;
-            display: block;
-        }
-
-        /* Fallback if no Tally URL is configured */
-        .tally-placeholder {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 300px;
-            gap: 16px;
-            color: rgba(248, 250, 252, 0.4);
-            font-size: 0.95rem;
-            padding: 40px;
-            text-align: center;
-        }
-
-        .tally-placeholder i {
-            font-size: 2.5rem;
-            color: rgba(34, 211, 238, 0.3);
-        }
-
         .steps-row {
             display: flex;
             gap: 16px;
@@ -185,6 +150,26 @@
             color: rgba(248, 250, 252, 0.7);
             line-height: 1.5;
         }
+
+        /* Select dropdown styling */
+        .wizard-form .form-group select {
+            width: 100%;
+            padding: 12px 16px;
+            background: #0f1729;
+            border: 1px solid #334155;
+            border-radius: 8px;
+            color: #f8fafc;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.95rem;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+            outline: none;
+            appearance: auto;
+        }
+
+        .wizard-form .form-group select:focus {
+            border-color: #22d3ee;
+            box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.15);
+        }
     </style>
 </head>
 
@@ -214,7 +199,7 @@
             <h1><em>Ačiū!</em> Mokėjimas gautas.</h1>
             <p>
                 Jūsų užsakymas sėkmingai apdorotas.<br>
-                Kitame žingsnyje užpildykite trumpą formą apie savo saloną —<br>
+                Kitame žingsnyje užpildykite trumpą formą apie savo verslą —<br>
                 ir mes pradėsime kurti jūsų svetainę.
             </p>
             <div class="ty-timeline">
@@ -226,7 +211,7 @@
             <div class="steps-row">
                 <div class="step-item">
                     <div class="step-num">1</div>
-                    <div class="step-text">Užpildykite formą žemiau apie savo saloną</div>
+                    <div class="step-text">Užpildykite formą žemiau apie savo verslą</div>
                 </div>
                 <div class="step-item">
                     <div class="step-num">2</div>
@@ -248,7 +233,7 @@
 
     <!-- Onboarding Form Section -->
     <section class="ty-form-section">
-        <h2>Papasakokite apie savo <em>saloną</em></h2>
+        <h2>Papasakokite apie savo <em>verslą</em></h2>
         <p class="sub">Šią informaciją naudosime kuriant jūsų svetainę. Užtruksite apie 3–5 minutes.</p>
 
         <form id="onboarding-form" class="wizard-form">
@@ -261,15 +246,42 @@
                     <span class="progress-step" data-step="4">4</span>
                     <span class="progress-step" data-step="5">5</span>
                     <span class="progress-step" data-step="6">6</span>
+                    <span class="progress-step" data-step="7">7</span>
+                    <span class="progress-step" data-step="8">8</span>
+                    <span class="progress-step" data-step="9">9</span>
+                    <span class="progress-step" data-step="10">10</span>
+                    <span class="progress-step" data-step="11">11</span>
                 </div>
             </div>
 
-            <!-- Step 1 — Pagrindinė informacija -->
+            <!-- Step 1 — Verslo tipas -->
             <div class="wizard-step active" data-step="1">
+                <h3 class="step-title">Verslo tipas</h3>
+                <div class="form-group">
+                    <label for="business_type">Kokio tipo jūsų verslas? <span class="required">*</span></label>
+                    <select id="business_type" name="business_type" required>
+                        <option value="">Pasirinkite...</option>
+                        <option value="kirpykla">Kirpykla / Hair salon</option>
+                        <option value="barber">Barber shop</option>
+                        <option value="nagai">Nagų studija</option>
+                        <option value="grozio_salonas">Grožio salonas</option>
+                        <option value="blakstienos">Blakstienų studija</option>
+                        <option value="spa">SPA / Masažai</option>
+                        <option value="kita">Kita</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Step 2 — Pagrindinė informacija -->
+            <div class="wizard-step" data-step="2">
                 <h3 class="step-title">Pagrindinė informacija</h3>
                 <div class="form-group">
-                    <label for="salon_name">Salono pavadinimas <span class="required">*</span></label>
+                    <label for="salon_name">Verslo pavadinimas <span class="required">*</span></label>
                     <input type="text" id="salon_name" name="salon_name" required>
+                </div>
+                <div class="form-group">
+                    <label for="address">Adresas</label>
+                    <input type="text" id="address" name="address" placeholder="Miestas, gatvė">
                 </div>
                 <div class="form-group">
                     <label for="phone">Kontaktinis telefonas <span class="required">*</span></label>
@@ -280,17 +292,17 @@
                     <input type="email" id="email" name="email" required>
                 </div>
                 <div class="form-group">
-                    <label for="instagram">Instagram profilis</label>
-                    <input type="text" id="instagram" name="instagram" placeholder="@jusu_salonas">
+                    <label for="instagram">Instagram</label>
+                    <input type="text" id="instagram" name="instagram" placeholder="@jusu_verslas">
                 </div>
                 <div class="form-group">
-                    <label for="address">Salono adresas</label>
-                    <input type="text" id="address" name="address">
+                    <label for="facebook">Facebook</label>
+                    <input type="text" id="facebook" name="facebook" placeholder="facebook.com/jusu_verslas">
                 </div>
             </div>
 
-            <!-- Step 2 — Paslaugos -->
-            <div class="wizard-step" data-step="2">
+            <!-- Step 3 — Paslaugos -->
+            <div class="wizard-step" data-step="3">
                 <h3 class="step-title">Paslaugos</h3>
                 <div class="form-group">
                     <label for="services_prices">Paslaugos ir kainos <span class="required">*</span></label>
@@ -302,9 +314,9 @@
                 </div>
             </div>
 
-            <!-- Step 3 — Dizainas -->
-            <div class="wizard-step" data-step="3">
-                <h3 class="step-title">Dizainas</h3>
+            <!-- Step 4 — Dizainas ir stilius -->
+            <div class="wizard-step" data-step="4">
+                <h3 class="step-title">Dizainas ir stilius</h3>
                 <div class="form-group">
                     <label>Ar turite logotipą?</label>
                     <div class="toggle-choice" data-field="has_logo">
@@ -339,70 +351,116 @@
                         </label>
                     </div>
                 </div>
-            </div>
-
-            <!-- Step 4 — Online registracija (CONDITIONAL) -->
-            <div class="wizard-step" data-step="4" data-conditional="wants_booking">
-                <h3 class="step-title">Online registracija</h3>
                 <div class="form-group">
-                    <label>Ar norite online registracijos sistemos?</label>
-                    <div class="toggle-choice" data-field="wants_booking">
-                        <button type="button" class="choice-btn" data-value="yes">Taip</button>
-                        <button type="button" class="choice-btn" data-value="no">Ne</button>
-                    </div>
-                </div>
-                <div class="conditional-fields" data-show-when="wants_booking=yes" style="display:none">
-                    <div class="form-group">
-                        <label for="service_durations">Paslaugų trukmė</label>
-                        <textarea id="service_durations" name="service_durations" rows="4" placeholder="Kirpimas – 30 min&#10;Dažymas – 90 min"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="break_times">Pertraukos</label>
-                        <input type="text" id="break_times" name="break_times" placeholder="pvz. 12:00–13:00">
-                    </div>
-                    <div class="form-group">
-                        <label>Nedarbo dienos</label>
-                        <div class="checkbox-group">
-                            <label class="checkbox-option"><input type="checkbox" name="off_days" value="Pirmadienis"><span>Pirmadienis</span></label>
-                            <label class="checkbox-option"><input type="checkbox" name="off_days" value="Antradienis"><span>Antradienis</span></label>
-                            <label class="checkbox-option"><input type="checkbox" name="off_days" value="Trečiadienis"><span>Trečiadienis</span></label>
-                            <label class="checkbox-option"><input type="checkbox" name="off_days" value="Ketvirtadienis"><span>Ketvirtadienis</span></label>
-                            <label class="checkbox-option"><input type="checkbox" name="off_days" value="Penktadienis"><span>Penktadienis</span></label>
-                            <label class="checkbox-option"><input type="checkbox" name="off_days" value="Šeštadienis"><span>Šeštadienis</span></label>
-                            <label class="checkbox-option"><input type="checkbox" name="off_days" value="Sekmadienis"><span>Sekmadienis</span></label>
-                        </div>
-                    </div>
+                    <label for="brand_vibe">Kokią nuotaiką norite svetainėje?</label>
+                    <input type="text" id="brand_vibe" name="brand_vibe" placeholder="pvz. elegantiškas, minimalistinis, jaukus, modernus">
                 </div>
             </div>
 
-            <!-- Step 5 — SEO (CONDITIONAL) -->
-            <div class="wizard-step" data-step="5" data-conditional="wants_seo">
-                <h3 class="step-title">SEO</h3>
+            <!-- Step 5 — Galerija -->
+            <div class="wizard-step" data-step="5">
+                <h3 class="step-title">Galerija ir nuotraukos</h3>
                 <div class="form-group">
-                    <label>Ar norite būti randami Google paieškoje?</label>
-                    <div class="toggle-choice" data-field="wants_seo">
-                        <button type="button" class="choice-btn" data-value="yes">Taip</button>
-                        <button type="button" class="choice-btn" data-value="no">Ne</button>
-                    </div>
+                    <label for="gallery_count">Kiek maždaug nuotraukų norite svetainėje?</label>
+                    <select id="gallery_count" name="gallery_count">
+                        <option value="">Pasirinkite...</option>
+                        <option value="5-10">5–10 nuotraukų</option>
+                        <option value="10-20">10–20 nuotraukų</option>
+                        <option value="20+">Daugiau nei 20</option>
+                        <option value="nera">Dar neturiu nuotraukų</option>
+                    </select>
                 </div>
-                <div class="conditional-fields" data-show-when="wants_seo=yes" style="display:none">
-                    <div class="form-group">
-                        <label for="seo_city">Miestas / rajonas <span class="required">*</span></label>
-                        <input type="text" id="seo_city" name="seo_city" placeholder="pvz. Vilnius, Šnipiškės">
-                    </div>
-                    <div class="form-group">
-                        <label for="seo_services">Prioritetinės paslaugos</label>
-                        <input type="text" id="seo_services" name="seo_services" placeholder="pvz. kirpimas, dažymas">
-                    </div>
+                <div class="form-group">
+                    <label for="gallery_categories">Kokio tipo nuotraukos?</label>
+                    <input type="text" id="gallery_categories" name="gallery_categories" placeholder="pvz. kirpimai, dažymai, salonas, komanda">
                 </div>
             </div>
 
-            <!-- Step 6 — Papildoma -->
-            <div class="wizard-step" data-step="6">
+            <!-- Step 6 — Dovanų kortelės (add-on: giftcards) -->
+            <div class="wizard-step" data-step="6" data-addon="giftcards">
+                <h3 class="step-title"><i class="fas fa-gift" style="color:#22d3ee;margin-right:8px"></i>Dovanų kortelės</h3>
+                <div class="form-group">
+                    <label for="gift_denominations">Kokias sumas norite siūlyti? <span class="required">*</span></label>
+                    <input type="text" id="gift_denominations" name="gift_denominations" required placeholder="pvz. 25€, 50€, 100€">
+                </div>
+                <div class="form-group">
+                    <label for="gift_design">Kortelės dizaino pageidavimai</label>
+                    <textarea id="gift_design" name="gift_design" rows="3" placeholder="pvz. su logotipu, minimalistinis stilius, rožinė spalva"></textarea>
+                </div>
+            </div>
+
+            <!-- Step 7 — Narystės (add-on: memberships) -->
+            <div class="wizard-step" data-step="7" data-addon="memberships">
+                <h3 class="step-title"><i class="fas fa-id-card" style="color:#22d3ee;margin-right:8px"></i>Narystės</h3>
+                <div class="form-group">
+                    <label for="membership_tiers">Kokias narystes norite siūlyti? <span class="required">*</span></label>
+                    <textarea id="membership_tiers" name="membership_tiers" rows="4" required placeholder="pvz. Bazinė – 29€/mėn (1 paslauga)&#10;Premium – 49€/mėn (visos paslaugos)"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="membership_perks">Narystės privalumai</label>
+                    <textarea id="membership_perks" name="membership_perks" rows="3" placeholder="pvz. nuolaidos produktams, pirmenybė registracijai"></textarea>
+                </div>
+            </div>
+
+            <!-- Step 8 — SMS priminimai (add-on: sms) -->
+            <div class="wizard-step" data-step="8" data-addon="sms">
+                <h3 class="step-title"><i class="fas fa-comment-sms" style="color:#22d3ee;margin-right:8px"></i>SMS priminimai</h3>
+                <div class="form-group">
+                    <label for="sms_timing">Kada siųsti priminimą prieš vizitą?</label>
+                    <select id="sms_timing" name="sms_timing">
+                        <option value="">Pasirinkite...</option>
+                        <option value="1h">1 valandą prieš</option>
+                        <option value="2h">2 valandas prieš</option>
+                        <option value="24h">24 valandas prieš</option>
+                        <option value="24h+2h">24 val. + 2 val. prieš</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="sms_language">SMS žinutės kalba</label>
+                    <select id="sms_language" name="sms_language">
+                        <option value="lt">Lietuvių</option>
+                        <option value="en">Anglų</option>
+                        <option value="both">Abi kalbos</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Step 9 — Inventorius (add-on: inventory) -->
+            <div class="wizard-step" data-step="9" data-addon="inventory">
+                <h3 class="step-title"><i class="fas fa-boxes-stacked" style="color:#22d3ee;margin-right:8px"></i>Inventoriaus valdymas</h3>
+                <div class="form-group">
+                    <label for="inventory_categories">Produktų kategorijos <span class="required">*</span></label>
+                    <textarea id="inventory_categories" name="inventory_categories" rows="3" required placeholder="pvz. Plaukų priežiūra, Dažai, Šampūnai, Įrankiai"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="inventory_notes">Papildomi pageidavimai</label>
+                    <textarea id="inventory_notes" name="inventory_notes" rows="3" placeholder="pvz. noriu matyti atsargų kiekį, gauti pranešimus kai baigiasi"></textarea>
+                </div>
+            </div>
+
+            <!-- Step 10 — Produktų katalogas (add-on: products) -->
+            <div class="wizard-step" data-step="10" data-addon="products">
+                <h3 class="step-title"><i class="fas fa-bag-shopping" style="color:#22d3ee;margin-right:8px"></i>Produktų katalogas</h3>
+                <div class="form-group">
+                    <label for="product_categories">Kokias produktų kategorijas pardavinėsite? <span class="required">*</span></label>
+                    <textarea id="product_categories" name="product_categories" rows="3" required placeholder="pvz. Šampūnai, Kaukės, Aliejai, Plaukų įrankiai"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="product_pricing">Kainos ir kiekiai</label>
+                    <textarea id="product_pricing" name="product_pricing" rows="3" placeholder="pvz. Šampūnas X – 15€, Kaukė Y – 22€"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="product_image_notes">Produktų nuotraukos</label>
+                    <textarea id="product_image_notes" name="product_image_notes" rows="3" placeholder="pvz. turiu nuotraukas iš tiekėjo, reikės nufotografuoti pačiam"></textarea>
+                </div>
+            </div>
+
+            <!-- Step 11 — Papildoma -->
+            <div class="wizard-step" data-step="11">
                 <h3 class="step-title">Papildoma</h3>
                 <div class="form-group">
-                    <label for="notes">Papildomi komentarai / pageidavimai</label>
-                    <textarea id="notes" name="notes" rows="5"></textarea>
+                    <label for="notes">Papildomi komentarai ar pageidavimai</label>
+                    <textarea id="notes" name="notes" rows="5" placeholder="Bet kas, ką norite mums pasakyti..."></textarea>
                 </div>
             </div>
 
@@ -432,13 +490,13 @@
                     <a href="#" rel="noopener">
                         <i class="fab fa-instagram"></i> Demo
                     </a>
-                    <a href="mailto:info@velorastudio.lt">
+                    <a href="mailto:velorastudios.lt@gmail.com">
                         <i class="fas fa-envelope"></i> El. paštas
                     </a>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Velora Studio. Visos teisės saugomos.</p>
+                <p>&copy; 2026 Velora Studio. Visos teisės saugomos.</p>
             </div>
         </div>
     </footer>
