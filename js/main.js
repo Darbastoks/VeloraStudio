@@ -586,6 +586,10 @@ document.addEventListener('DOMContentLoaded', () => {
             membership_tiers: val('membership_tiers'),
             membership_perks: val('membership_perks'),
 
+            // Add-on: Email Reminders
+            email_timing: val('email_timing'),
+            email_language: val('email_language'),
+
             // Add-on: SMS
             sms_timing: val('sms_timing'),
             sms_language: val('sms_language'),

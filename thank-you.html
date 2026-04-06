@@ -251,6 +251,7 @@
                     <span class="progress-step" data-step="9">9</span>
                     <span class="progress-step" data-step="10">10</span>
                     <span class="progress-step" data-step="11">11</span>
+                    <span class="progress-step" data-step="12">12</span>
                 </div>
             </div>
 
@@ -402,8 +403,31 @@
                 </div>
             </div>
 
-            <!-- Step 8 — SMS priminimai (add-on: sms) -->
-            <div class="wizard-step" data-step="8" data-addon="sms">
+            <!-- Step 8 — El. pašto priminimai (add-on: email) -->
+            <div class="wizard-step" data-step="8" data-addon="email">
+                <h3 class="step-title"><i class="fas fa-envelope" style="color:#22d3ee;margin-right:8px"></i>El. pašto priminimai</h3>
+                <div class="form-group">
+                    <label for="email_timing">Kada siųsti priminimą prieš vizitą?</label>
+                    <select id="email_timing" name="email_timing">
+                        <option value="">Pasirinkite...</option>
+                        <option value="1h">1 valandą prieš</option>
+                        <option value="2h">2 valandas prieš</option>
+                        <option value="24h">24 valandas prieš</option>
+                        <option value="24h+2h">24 val. + 2 val. prieš</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="email_language">El. laiško kalba</label>
+                    <select id="email_language" name="email_language">
+                        <option value="lt">Lietuvių</option>
+                        <option value="en">Anglų</option>
+                        <option value="both">Abi kalbos</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Step 9 — SMS priminimai (add-on: sms) -->
+            <div class="wizard-step" data-step="9" data-addon="sms">
                 <h3 class="step-title"><i class="fas fa-comment-sms" style="color:#22d3ee;margin-right:8px"></i>SMS priminimai</h3>
                 <div class="form-group">
                     <label for="sms_timing">Kada siųsti priminimą prieš vizitą?</label>
@@ -425,8 +449,8 @@
                 </div>
             </div>
 
-            <!-- Step 9 — Inventorius (add-on: inventory) -->
-            <div class="wizard-step" data-step="9" data-addon="inventory">
+            <!-- Step 10 — Inventorius (add-on: inventory) -->
+            <div class="wizard-step" data-step="10" data-addon="inventory">
                 <h3 class="step-title"><i class="fas fa-boxes-stacked" style="color:#22d3ee;margin-right:8px"></i>Inventoriaus valdymas</h3>
                 <div class="form-group">
                     <label for="inventory_categories">Produktų kategorijos <span class="required">*</span></label>
@@ -438,8 +462,8 @@
                 </div>
             </div>
 
-            <!-- Step 10 — Produktų katalogas (add-on: products) -->
-            <div class="wizard-step" data-step="10" data-addon="products">
+            <!-- Step 11 — Produktų katalogas (add-on: products) -->
+            <div class="wizard-step" data-step="11" data-addon="products">
                 <h3 class="step-title"><i class="fas fa-bag-shopping" style="color:#22d3ee;margin-right:8px"></i>Produktų katalogas</h3>
                 <div class="form-group">
                     <label for="product_categories">Kokias produktų kategorijas pardavinėsite? <span class="required">*</span></label>
@@ -455,8 +479,8 @@
                 </div>
             </div>
 
-            <!-- Step 11 — Papildoma -->
-            <div class="wizard-step" data-step="11">
+            <!-- Step 12 — Papildoma -->
+            <div class="wizard-step" data-step="12">
                 <h3 class="step-title">Papildoma</h3>
                 <div class="form-group">
                     <label for="notes">Papildomi komentarai ar pageidavimai</label>

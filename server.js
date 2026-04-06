@@ -47,9 +47,16 @@ const ADDONS = {
         icon: 'fa-id-card',
         description: 'Mėnesinės narystės ir lojalumo programos',
     },
+    email: {
+        monthly: { priceId: process.env.STRIPE_PRICE_ADDON_EMAIL_MONTHLY, display: 9 },
+        annual:  { priceId: process.env.STRIPE_PRICE_ADDON_EMAIL_ANNUAL,  display: 79 },
+        label: 'El. pašto priminimai',
+        icon: 'fa-envelope',
+        description: 'Automatiniai vizitų priminimai el. paštu',
+    },
     sms: {
-        monthly: { priceId: process.env.STRIPE_PRICE_ADDON_SMS_MONTHLY, display: 7 },
-        annual:  { priceId: process.env.STRIPE_PRICE_ADDON_SMS_ANNUAL,  display: 59 },
+        monthly: { priceId: process.env.STRIPE_PRICE_ADDON_SMS_MONTHLY, display: 19 },
+        annual:  { priceId: process.env.STRIPE_PRICE_ADDON_SMS_ANNUAL,  display: 179 },
         label: 'SMS priminimai',
         icon: 'fa-comment-sms',
         description: 'Automatiniai vizitų priminimai SMS žinutėmis',
