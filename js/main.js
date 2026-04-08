@@ -132,6 +132,18 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // FAQ Accordion
+    document.querySelectorAll('.faq-question').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const item = btn.closest('.faq-item');
+            const isOpen = item.classList.contains('active');
+            document.querySelectorAll('.faq-item.active').forEach(open => {
+                if (open !== item) open.classList.remove('active');
+            });
+            item.classList.toggle('active', !isOpen);
+        });
+    });
 });
 
 // ================================================================
@@ -369,12 +381,31 @@ document.addEventListener('DOMContentLoaded', () => {
 // ================================================================
 // ONBOARDING WIZARD FORM (thank-you.html)
 // ================================================================
-(function initWizard() {
+(async function initWizard() {
     const form = document.getElementById('onboarding-form');
     if (!form) return;
 
     // Read order data from localStorage
-    const order = JSON.parse(localStorage.getItem('velora_order') || '{}');
+    let order = JSON.parse(localStorage.getItem('velora_order') || '{}');
+
+    // Fallback: if no plan in localStorage, fetch from Stripe session
+    if (!order.plan) {
+        const params = new URLSearchParams(window.location.search);
+        const sessionId = params.get('session_id');
+        if (sessionId) {
+            try {
+                const res = await fetch(`/api/session/${encodeURIComponent(sessionId)}`);
+                if (res.ok) {
+                    const data = await res.json();
+                    order = { plan: data.plan, addons: data.addons };
+                    localStorage.setItem('velora_order', JSON.stringify(order));
+                }
+            } catch (e) {
+                console.warn('Could not fetch session data:', e.message);
+            }
+        }
+    }
+
     const purchasedAddons = new Set(order.addons || []);
 
     const steps = Array.from(form.querySelectorAll('.wizard-step'));

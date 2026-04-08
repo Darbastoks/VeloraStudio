@@ -237,6 +237,30 @@ app.post('/create-checkout-session', async (req, res) => {
 });
 
 // ================================================================
+// API: Retrieve session metadata (fallback for localStorage)
+// ================================================================
+app.get('/api/session/:sessionId', async (req, res) => {
+    const { sessionId } = req.params;
+    if (!sessionId || !/^cs_(test_|live_)?[a-zA-Z0-9]+$/.test(sessionId)) {
+        return res.status(400).json({ error: 'Neteisingas sesijos ID.' });
+    }
+    try {
+        const session = await stripe.checkout.sessions.retrieve(sessionId);
+        const meta = session.metadata || {};
+        res.json({
+            plan: meta.plan || '',
+            addons: meta.addons ? meta.addons.split(',').filter(Boolean) : [],
+        });
+    } catch (err) {
+        console.error('Session lookup error:', err.message);
+        if (err.type === 'StripeInvalidRequestError') {
+            return res.status(404).json({ error: 'Sesija nerasta.' });
+        }
+        res.status(500).json({ error: 'Serverio klaida.' });
+    }
+});
+
+// ================================================================
 // STATIC FILES & PAGES
 // ================================================================
 app.use(express.static(path.join(__dirname)));
