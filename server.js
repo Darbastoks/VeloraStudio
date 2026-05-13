@@ -110,7 +110,7 @@ app.post('/webhook/stripe',
             event = stripe.webhooks.constructEvent(req.body, sig, webhookSecret);
         } catch (err) {
             console.error('Stripe webhook signature error:', err.message);
-            return res.status(400).send(`Webhook Error: ${err.message}`);
+            return res.status(400).json({ error: 'Mokėjimo įvykio klaida' });
         }
 
         if (event.type === 'checkout.session.completed') {
